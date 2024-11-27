@@ -1,0 +1,1733 @@
+
+UnityAPP_Test1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000c2a  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         000000c8  00800060  00000c2a  00000cbe  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000003b  00800128  00800128  00000d86  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000d86  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000db8  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000298  00000000  00000000  00000df4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00004c41  00000000  00000000  0000108c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000c53  00000000  00000000  00005ccd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00001efa  00000000  00000000  00006920  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000d18  00000000  00000000  0000881c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000127c  00000000  00000000  00009534  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000501a  00000000  00000000  0000a7b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000288  00000000  00000000  0000f7ca  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 5d 02 	jmp	0x4ba	; 0x4ba <__vector_13>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 34 02 	jmp	0x468	; 0x468 <__vector_15>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	11 e0       	ldi	r17, 0x01	; 1
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ea e2       	ldi	r30, 0x2A	; 42
+  68:	fc e0       	ldi	r31, 0x0C	; 12
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a8 32       	cpi	r26, 0x28	; 40
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	21 e0       	ldi	r18, 0x01	; 1
+  78:	a8 e2       	ldi	r26, 0x28	; 40
+  7a:	b1 e0       	ldi	r27, 0x01	; 1
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a3 36       	cpi	r26, 0x63	; 99
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 58 01 	call	0x2b0	; 0x2b0 <main>
+  8a:	0c 94 13 06 	jmp	0xc26	; 0xc26 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <DIO_InitPin>:
+	
+}
+
+static void DIO_InitPin(DIO_Pin_type pin,DIO_PinStatus_type status)
+{
+	DIO_Port_type port =pin/8;
+  92:	98 2f       	mov	r25, r24
+  94:	96 95       	lsr	r25
+  96:	96 95       	lsr	r25
+  98:	96 95       	lsr	r25
+	u8 pin_num=pin%8;
+  9a:	87 70       	andi	r24, 0x07	; 7
+	
+	switch(status)
+  9c:	61 30       	cpi	r22, 0x01	; 1
+  9e:	09 f4       	brne	.+2      	; 0xa2 <DIO_InitPin+0x10>
+  a0:	55 c0       	rjmp	.+170    	; 0x14c <DIO_InitPin+0xba>
+  a2:	20 f0       	brcs	.+8      	; 0xac <DIO_InitPin+0x1a>
+  a4:	62 30       	cpi	r22, 0x02	; 2
+  a6:	09 f4       	brne	.+2      	; 0xaa <DIO_InitPin+0x18>
+  a8:	a1 c0       	rjmp	.+322    	; 0x1ec <DIO_InitPin+0x15a>
+  aa:	08 95       	ret
+	{
+		case OUTPUT:
+		switch(port)
+  ac:	91 30       	cpi	r25, 0x01	; 1
+  ae:	c1 f0       	breq	.+48     	; 0xe0 <DIO_InitPin+0x4e>
+  b0:	28 f0       	brcs	.+10     	; 0xbc <DIO_InitPin+0x2a>
+  b2:	92 30       	cpi	r25, 0x02	; 2
+  b4:	39 f1       	breq	.+78     	; 0x104 <DIO_InitPin+0x72>
+  b6:	93 30       	cpi	r25, 0x03	; 3
+  b8:	b9 f1       	breq	.+110    	; 0x128 <DIO_InitPin+0x96>
+  ba:	08 95       	ret
+		{
+			case PA:
+			SET_BIT( DDRA,pin_num);
+  bc:	4a b3       	in	r20, 0x1a	; 26
+  be:	21 e0       	ldi	r18, 0x01	; 1
+  c0:	30 e0       	ldi	r19, 0x00	; 0
+  c2:	b9 01       	movw	r22, r18
+  c4:	02 c0       	rjmp	.+4      	; 0xca <DIO_InitPin+0x38>
+  c6:	66 0f       	add	r22, r22
+  c8:	77 1f       	adc	r23, r23
+  ca:	8a 95       	dec	r24
+  cc:	e2 f7       	brpl	.-8      	; 0xc6 <DIO_InitPin+0x34>
+  ce:	cb 01       	movw	r24, r22
+  d0:	94 2f       	mov	r25, r20
+  d2:	98 2b       	or	r25, r24
+  d4:	9a bb       	out	0x1a, r25	; 26
+			CLR_BIT(PORTA,pin_num);
+  d6:	9b b3       	in	r25, 0x1b	; 27
+  d8:	80 95       	com	r24
+  da:	89 23       	and	r24, r25
+  dc:	8b bb       	out	0x1b, r24	; 27
+			break;
+  de:	08 95       	ret
+			case PB:
+			SET_BIT( DDRB,pin_num);
+  e0:	47 b3       	in	r20, 0x17	; 23
+  e2:	21 e0       	ldi	r18, 0x01	; 1
+  e4:	30 e0       	ldi	r19, 0x00	; 0
+  e6:	b9 01       	movw	r22, r18
+  e8:	02 c0       	rjmp	.+4      	; 0xee <DIO_InitPin+0x5c>
+  ea:	66 0f       	add	r22, r22
+  ec:	77 1f       	adc	r23, r23
+  ee:	8a 95       	dec	r24
+  f0:	e2 f7       	brpl	.-8      	; 0xea <DIO_InitPin+0x58>
+  f2:	cb 01       	movw	r24, r22
+  f4:	94 2f       	mov	r25, r20
+  f6:	98 2b       	or	r25, r24
+  f8:	97 bb       	out	0x17, r25	; 23
+			CLR_BIT(PORTB,pin_num);
+  fa:	98 b3       	in	r25, 0x18	; 24
+  fc:	80 95       	com	r24
+  fe:	89 23       	and	r24, r25
+ 100:	88 bb       	out	0x18, r24	; 24
+			break;
+ 102:	08 95       	ret
+			case PC:
+			SET_BIT( DDRC,pin_num);
+ 104:	44 b3       	in	r20, 0x14	; 20
+ 106:	21 e0       	ldi	r18, 0x01	; 1
+ 108:	30 e0       	ldi	r19, 0x00	; 0
+ 10a:	b9 01       	movw	r22, r18
+ 10c:	02 c0       	rjmp	.+4      	; 0x112 <DIO_InitPin+0x80>
+ 10e:	66 0f       	add	r22, r22
+ 110:	77 1f       	adc	r23, r23
+ 112:	8a 95       	dec	r24
+ 114:	e2 f7       	brpl	.-8      	; 0x10e <DIO_InitPin+0x7c>
+ 116:	cb 01       	movw	r24, r22
+ 118:	94 2f       	mov	r25, r20
+ 11a:	98 2b       	or	r25, r24
+ 11c:	94 bb       	out	0x14, r25	; 20
+			CLR_BIT(PORTC,pin_num);
+ 11e:	95 b3       	in	r25, 0x15	; 21
+ 120:	80 95       	com	r24
+ 122:	89 23       	and	r24, r25
+ 124:	85 bb       	out	0x15, r24	; 21
+			break;
+ 126:	08 95       	ret
+			case PD:
+			SET_BIT( DDRD,pin_num);
+ 128:	41 b3       	in	r20, 0x11	; 17
+ 12a:	21 e0       	ldi	r18, 0x01	; 1
+ 12c:	30 e0       	ldi	r19, 0x00	; 0
+ 12e:	b9 01       	movw	r22, r18
+ 130:	02 c0       	rjmp	.+4      	; 0x136 <DIO_InitPin+0xa4>
+ 132:	66 0f       	add	r22, r22
+ 134:	77 1f       	adc	r23, r23
+ 136:	8a 95       	dec	r24
+ 138:	e2 f7       	brpl	.-8      	; 0x132 <DIO_InitPin+0xa0>
+ 13a:	cb 01       	movw	r24, r22
+ 13c:	94 2f       	mov	r25, r20
+ 13e:	98 2b       	or	r25, r24
+ 140:	91 bb       	out	0x11, r25	; 17
+			CLR_BIT(PORTD,pin_num);
+ 142:	92 b3       	in	r25, 0x12	; 18
+ 144:	80 95       	com	r24
+ 146:	89 23       	and	r24, r25
+ 148:	82 bb       	out	0x12, r24	; 18
+			break;
+ 14a:	08 95       	ret
+		}
+		break;
+		case INFREE:
+		switch(port)
+ 14c:	91 30       	cpi	r25, 0x01	; 1
+ 14e:	c1 f0       	breq	.+48     	; 0x180 <DIO_InitPin+0xee>
+ 150:	28 f0       	brcs	.+10     	; 0x15c <DIO_InitPin+0xca>
+ 152:	92 30       	cpi	r25, 0x02	; 2
+ 154:	39 f1       	breq	.+78     	; 0x1a4 <DIO_InitPin+0x112>
+ 156:	93 30       	cpi	r25, 0x03	; 3
+ 158:	b9 f1       	breq	.+110    	; 0x1c8 <DIO_InitPin+0x136>
+ 15a:	08 95       	ret
+		{
+			case PA:
+			CLR_BIT(DDRA,pin_num);
+ 15c:	4a b3       	in	r20, 0x1a	; 26
+ 15e:	21 e0       	ldi	r18, 0x01	; 1
+ 160:	30 e0       	ldi	r19, 0x00	; 0
+ 162:	b9 01       	movw	r22, r18
+ 164:	02 c0       	rjmp	.+4      	; 0x16a <DIO_InitPin+0xd8>
+ 166:	66 0f       	add	r22, r22
+ 168:	77 1f       	adc	r23, r23
+ 16a:	8a 95       	dec	r24
+ 16c:	e2 f7       	brpl	.-8      	; 0x166 <DIO_InitPin+0xd4>
+ 16e:	cb 01       	movw	r24, r22
+ 170:	80 95       	com	r24
+ 172:	94 2f       	mov	r25, r20
+ 174:	98 23       	and	r25, r24
+ 176:	9a bb       	out	0x1a, r25	; 26
+			CLR_BIT(PORTA,pin_num);
+ 178:	9b b3       	in	r25, 0x1b	; 27
+ 17a:	89 23       	and	r24, r25
+ 17c:	8b bb       	out	0x1b, r24	; 27
+			break;
+ 17e:	08 95       	ret
+			case PB:
+			CLR_BIT(DDRB,pin_num);
+ 180:	47 b3       	in	r20, 0x17	; 23
+ 182:	21 e0       	ldi	r18, 0x01	; 1
+ 184:	30 e0       	ldi	r19, 0x00	; 0
+ 186:	b9 01       	movw	r22, r18
+ 188:	02 c0       	rjmp	.+4      	; 0x18e <DIO_InitPin+0xfc>
+ 18a:	66 0f       	add	r22, r22
+ 18c:	77 1f       	adc	r23, r23
+ 18e:	8a 95       	dec	r24
+ 190:	e2 f7       	brpl	.-8      	; 0x18a <DIO_InitPin+0xf8>
+ 192:	cb 01       	movw	r24, r22
+ 194:	80 95       	com	r24
+ 196:	94 2f       	mov	r25, r20
+ 198:	98 23       	and	r25, r24
+ 19a:	97 bb       	out	0x17, r25	; 23
+			CLR_BIT(PORTB,pin_num);
+ 19c:	98 b3       	in	r25, 0x18	; 24
+ 19e:	89 23       	and	r24, r25
+ 1a0:	88 bb       	out	0x18, r24	; 24
+			break;
+ 1a2:	08 95       	ret
+			case PC:
+			CLR_BIT(DDRC,pin_num);
+ 1a4:	44 b3       	in	r20, 0x14	; 20
+ 1a6:	21 e0       	ldi	r18, 0x01	; 1
+ 1a8:	30 e0       	ldi	r19, 0x00	; 0
+ 1aa:	b9 01       	movw	r22, r18
+ 1ac:	02 c0       	rjmp	.+4      	; 0x1b2 <DIO_InitPin+0x120>
+ 1ae:	66 0f       	add	r22, r22
+ 1b0:	77 1f       	adc	r23, r23
+ 1b2:	8a 95       	dec	r24
+ 1b4:	e2 f7       	brpl	.-8      	; 0x1ae <DIO_InitPin+0x11c>
+ 1b6:	cb 01       	movw	r24, r22
+ 1b8:	80 95       	com	r24
+ 1ba:	94 2f       	mov	r25, r20
+ 1bc:	98 23       	and	r25, r24
+ 1be:	94 bb       	out	0x14, r25	; 20
+			CLR_BIT(PORTC,pin_num);
+ 1c0:	95 b3       	in	r25, 0x15	; 21
+ 1c2:	89 23       	and	r24, r25
+ 1c4:	85 bb       	out	0x15, r24	; 21
+			break;
+ 1c6:	08 95       	ret
+			case PD:
+			CLR_BIT(DDRD,pin_num);
+ 1c8:	41 b3       	in	r20, 0x11	; 17
+ 1ca:	21 e0       	ldi	r18, 0x01	; 1
+ 1cc:	30 e0       	ldi	r19, 0x00	; 0
+ 1ce:	b9 01       	movw	r22, r18
+ 1d0:	02 c0       	rjmp	.+4      	; 0x1d6 <DIO_InitPin+0x144>
+ 1d2:	66 0f       	add	r22, r22
+ 1d4:	77 1f       	adc	r23, r23
+ 1d6:	8a 95       	dec	r24
+ 1d8:	e2 f7       	brpl	.-8      	; 0x1d2 <DIO_InitPin+0x140>
+ 1da:	cb 01       	movw	r24, r22
+ 1dc:	80 95       	com	r24
+ 1de:	94 2f       	mov	r25, r20
+ 1e0:	98 23       	and	r25, r24
+ 1e2:	91 bb       	out	0x11, r25	; 17
+			CLR_BIT(PORTD,pin_num);
+ 1e4:	92 b3       	in	r25, 0x12	; 18
+ 1e6:	89 23       	and	r24, r25
+ 1e8:	82 bb       	out	0x12, r24	; 18
+			break;
+ 1ea:	08 95       	ret
+		}
+		break;
+		
+		case INPULL:
+		switch(port)
+ 1ec:	91 30       	cpi	r25, 0x01	; 1
+ 1ee:	c1 f0       	breq	.+48     	; 0x220 <DIO_InitPin+0x18e>
+ 1f0:	28 f0       	brcs	.+10     	; 0x1fc <DIO_InitPin+0x16a>
+ 1f2:	92 30       	cpi	r25, 0x02	; 2
+ 1f4:	39 f1       	breq	.+78     	; 0x244 <DIO_InitPin+0x1b2>
+ 1f6:	93 30       	cpi	r25, 0x03	; 3
+ 1f8:	b9 f1       	breq	.+110    	; 0x268 <DIO_InitPin+0x1d6>
+ 1fa:	08 95       	ret
+		{
+			case PA:
+			CLR_BIT(DDRA,pin_num);
+ 1fc:	4a b3       	in	r20, 0x1a	; 26
+ 1fe:	21 e0       	ldi	r18, 0x01	; 1
+ 200:	30 e0       	ldi	r19, 0x00	; 0
+ 202:	b9 01       	movw	r22, r18
+ 204:	02 c0       	rjmp	.+4      	; 0x20a <DIO_InitPin+0x178>
+ 206:	66 0f       	add	r22, r22
+ 208:	77 1f       	adc	r23, r23
+ 20a:	8a 95       	dec	r24
+ 20c:	e2 f7       	brpl	.-8      	; 0x206 <DIO_InitPin+0x174>
+ 20e:	cb 01       	movw	r24, r22
+ 210:	96 2f       	mov	r25, r22
+ 212:	90 95       	com	r25
+ 214:	94 23       	and	r25, r20
+ 216:	9a bb       	out	0x1a, r25	; 26
+			SET_BIT(PORTA,pin_num);
+ 218:	9b b3       	in	r25, 0x1b	; 27
+ 21a:	89 2b       	or	r24, r25
+ 21c:	8b bb       	out	0x1b, r24	; 27
+			break;
+ 21e:	08 95       	ret
+			case PB:
+			CLR_BIT(DDRB,pin_num);
+ 220:	47 b3       	in	r20, 0x17	; 23
+ 222:	21 e0       	ldi	r18, 0x01	; 1
+ 224:	30 e0       	ldi	r19, 0x00	; 0
+ 226:	b9 01       	movw	r22, r18
+ 228:	02 c0       	rjmp	.+4      	; 0x22e <DIO_InitPin+0x19c>
+ 22a:	66 0f       	add	r22, r22
+ 22c:	77 1f       	adc	r23, r23
+ 22e:	8a 95       	dec	r24
+ 230:	e2 f7       	brpl	.-8      	; 0x22a <DIO_InitPin+0x198>
+ 232:	cb 01       	movw	r24, r22
+ 234:	96 2f       	mov	r25, r22
+ 236:	90 95       	com	r25
+ 238:	94 23       	and	r25, r20
+ 23a:	97 bb       	out	0x17, r25	; 23
+			SET_BIT(PORTB,pin_num);
+ 23c:	98 b3       	in	r25, 0x18	; 24
+ 23e:	89 2b       	or	r24, r25
+ 240:	88 bb       	out	0x18, r24	; 24
+			break;
+ 242:	08 95       	ret
+			case PC:
+			CLR_BIT(DDRC,pin_num);
+ 244:	44 b3       	in	r20, 0x14	; 20
+ 246:	21 e0       	ldi	r18, 0x01	; 1
+ 248:	30 e0       	ldi	r19, 0x00	; 0
+ 24a:	b9 01       	movw	r22, r18
+ 24c:	02 c0       	rjmp	.+4      	; 0x252 <DIO_InitPin+0x1c0>
+ 24e:	66 0f       	add	r22, r22
+ 250:	77 1f       	adc	r23, r23
+ 252:	8a 95       	dec	r24
+ 254:	e2 f7       	brpl	.-8      	; 0x24e <DIO_InitPin+0x1bc>
+ 256:	cb 01       	movw	r24, r22
+ 258:	96 2f       	mov	r25, r22
+ 25a:	90 95       	com	r25
+ 25c:	94 23       	and	r25, r20
+ 25e:	94 bb       	out	0x14, r25	; 20
+			SET_BIT(PORTC,pin_num);
+ 260:	95 b3       	in	r25, 0x15	; 21
+ 262:	89 2b       	or	r24, r25
+ 264:	85 bb       	out	0x15, r24	; 21
+			break;
+ 266:	08 95       	ret
+			case PD:
+			CLR_BIT(DDRD,pin_num);
+ 268:	41 b3       	in	r20, 0x11	; 17
+ 26a:	21 e0       	ldi	r18, 0x01	; 1
+ 26c:	30 e0       	ldi	r19, 0x00	; 0
+ 26e:	b9 01       	movw	r22, r18
+ 270:	02 c0       	rjmp	.+4      	; 0x276 <DIO_InitPin+0x1e4>
+ 272:	66 0f       	add	r22, r22
+ 274:	77 1f       	adc	r23, r23
+ 276:	8a 95       	dec	r24
+ 278:	e2 f7       	brpl	.-8      	; 0x272 <DIO_InitPin+0x1e0>
+ 27a:	cb 01       	movw	r24, r22
+ 27c:	96 2f       	mov	r25, r22
+ 27e:	90 95       	com	r25
+ 280:	94 23       	and	r25, r20
+ 282:	91 bb       	out	0x11, r25	; 17
+			SET_BIT(PORTD,pin_num);
+ 284:	92 b3       	in	r25, 0x12	; 18
+ 286:	89 2b       	or	r24, r25
+ 288:	82 bb       	out	0x12, r24	; 18
+ 28a:	08 95       	ret
+
+0000028c <DIO_Init>:
+#include "DIO_Private.h"
+
+
+
+void DIO_Init(void)
+{
+ 28c:	cf 93       	push	r28
+	DIO_Pin_type i;
+	for(i=PINA0;i<TOTAL_PINS;i++)
+ 28e:	c0 e0       	ldi	r28, 0x00	; 0
+ 290:	09 c0       	rjmp	.+18     	; 0x2a4 <DIO_Init+0x18>
+	{
+		DIO_InitPin(i,PinsStatusArray[i]);
+ 292:	ec 2f       	mov	r30, r28
+ 294:	f0 e0       	ldi	r31, 0x00	; 0
+ 296:	e0 5a       	subi	r30, 0xA0	; 160
+ 298:	ff 4f       	sbci	r31, 0xFF	; 255
+ 29a:	60 81       	ld	r22, Z
+ 29c:	8c 2f       	mov	r24, r28
+ 29e:	0e 94 49 00 	call	0x92	; 0x92 <DIO_InitPin>
+
+
+void DIO_Init(void)
+{
+	DIO_Pin_type i;
+	for(i=PINA0;i<TOTAL_PINS;i++)
+ 2a2:	cf 5f       	subi	r28, 0xFF	; 255
+ 2a4:	c0 32       	cpi	r28, 0x20	; 32
+ 2a6:	a8 f3       	brcs	.-22     	; 0x292 <DIO_Init+0x6>
+	{
+		DIO_InitPin(i,PinsStatusArray[i]);
+	}
+	
+}
+ 2a8:	cf 91       	pop	r28
+ 2aa:	08 95       	ret
+
+000002ac <setUp>:
+#include "DIO_interface.h"
+#include "UART_Interface.h"
+#include "unity.h"
+
+void setUp(void)
+{
+ 2ac:	08 95       	ret
+
+000002ae <tearDown>:
+
+}
+void tearDown(void)
+{
+ 2ae:	08 95       	ret
+
+000002b0 <main>:
+void test_add2_check(void);
+void test_add3_check(void);
+s32 AddFunc(s32 num1,s32 num2);
+int main(void)
+{
+	DIO_Init();
+ 2b0:	0e 94 46 01 	call	0x28c	; 0x28c <DIO_Init>
+	UART_Init(9600);
+ 2b4:	80 e8       	ldi	r24, 0x80	; 128
+ 2b6:	95 e2       	ldi	r25, 0x25	; 37
+ 2b8:	0e 94 0a 02 	call	0x414	; 0x414 <UART_Init>
+    /* Replace with your application code */
+	UNITY_BEGIN();
+ 2bc:	80 e8       	ldi	r24, 0x80	; 128
+ 2be:	90 e0       	ldi	r25, 0x00	; 0
+ 2c0:	0e 94 43 05 	call	0xa86	; 0xa86 <UnityBegin>
+	RUN_TEST(test_add1_check);
+ 2c4:	43 e2       	ldi	r20, 0x23	; 35
+ 2c6:	50 e0       	ldi	r21, 0x00	; 0
+ 2c8:	6c e8       	ldi	r22, 0x8C	; 140
+ 2ca:	70 e0       	ldi	r23, 0x00	; 0
+ 2cc:	82 e8       	ldi	r24, 0x82	; 130
+ 2ce:	91 e0       	ldi	r25, 0x01	; 1
+ 2d0:	0e 94 07 05 	call	0xa0e	; 0xa0e <UnityDefaultTestRun>
+	RUN_TEST(test_add2_check);
+ 2d4:	44 e2       	ldi	r20, 0x24	; 36
+ 2d6:	50 e0       	ldi	r21, 0x00	; 0
+ 2d8:	6c e9       	ldi	r22, 0x9C	; 156
+ 2da:	70 e0       	ldi	r23, 0x00	; 0
+ 2dc:	80 eb       	ldi	r24, 0xB0	; 176
+ 2de:	91 e0       	ldi	r25, 0x01	; 1
+ 2e0:	0e 94 07 05 	call	0xa0e	; 0xa0e <UnityDefaultTestRun>
+	RUN_TEST(test_add3_check);
+ 2e4:	45 e2       	ldi	r20, 0x25	; 37
+ 2e6:	50 e0       	ldi	r21, 0x00	; 0
+ 2e8:	6c ea       	ldi	r22, 0xAC	; 172
+ 2ea:	70 e0       	ldi	r23, 0x00	; 0
+ 2ec:	8d ed       	ldi	r24, 0xDD	; 221
+ 2ee:	91 e0       	ldi	r25, 0x01	; 1
+ 2f0:	0e 94 07 05 	call	0xa0e	; 0xa0e <UnityDefaultTestRun>
+	UNITY_END();
+ 2f4:	0e 94 66 05 	call	0xacc	; 0xacc <UnityEnd>
+ 2f8:	ff cf       	rjmp	.-2      	; 0x2f8 <main+0x48>
+
+000002fa <AddFunc>:
+    }
+}
+
+s32 AddFunc(s32 num1,s32 num2)
+{
+	return num1+num2;
+ 2fa:	62 0f       	add	r22, r18
+ 2fc:	73 1f       	adc	r23, r19
+ 2fe:	84 1f       	adc	r24, r20
+ 300:	95 1f       	adc	r25, r21
+}
+ 302:	08 95       	ret
+
+00000304 <test_add1_check>:
+
+void test_add1_check(void)
+{
+ 304:	af 92       	push	r10
+ 306:	cf 92       	push	r12
+ 308:	df 92       	push	r13
+ 30a:	ef 92       	push	r14
+ 30c:	ff 92       	push	r15
+ 30e:	0f 93       	push	r16
+ 310:	1f 93       	push	r17
+	TEST_ASSERT_EQUAL(3,AddFunc(1,2));
+ 312:	22 e0       	ldi	r18, 0x02	; 2
+ 314:	30 e0       	ldi	r19, 0x00	; 0
+ 316:	40 e0       	ldi	r20, 0x00	; 0
+ 318:	50 e0       	ldi	r21, 0x00	; 0
+ 31a:	61 e0       	ldi	r22, 0x01	; 1
+ 31c:	70 e0       	ldi	r23, 0x00	; 0
+ 31e:	80 e0       	ldi	r24, 0x00	; 0
+ 320:	90 e0       	ldi	r25, 0x00	; 0
+ 322:	0e 94 7d 01 	call	0x2fa	; 0x2fa <AddFunc>
+ 326:	9b 01       	movw	r18, r22
+ 328:	ac 01       	movw	r20, r24
+ 32a:	0f 2e       	mov	r0, r31
+ 32c:	f2 e1       	ldi	r31, 0x12	; 18
+ 32e:	af 2e       	mov	r10, r31
+ 330:	f0 2d       	mov	r31, r0
+ 332:	0f 2e       	mov	r0, r31
+ 334:	f3 e3       	ldi	r31, 0x33	; 51
+ 336:	cf 2e       	mov	r12, r31
+ 338:	d1 2c       	mov	r13, r1
+ 33a:	e1 2c       	mov	r14, r1
+ 33c:	f1 2c       	mov	r15, r1
+ 33e:	f0 2d       	mov	r31, r0
+ 340:	00 e0       	ldi	r16, 0x00	; 0
+ 342:	10 e0       	ldi	r17, 0x00	; 0
+ 344:	63 e0       	ldi	r22, 0x03	; 3
+ 346:	70 e0       	ldi	r23, 0x00	; 0
+ 348:	80 e0       	ldi	r24, 0x00	; 0
+ 34a:	90 e0       	ldi	r25, 0x00	; 0
+ 34c:	0e 94 8a 04 	call	0x914	; 0x914 <UnityAssertEqualNumber>
+}
+ 350:	1f 91       	pop	r17
+ 352:	0f 91       	pop	r16
+ 354:	ff 90       	pop	r15
+ 356:	ef 90       	pop	r14
+ 358:	df 90       	pop	r13
+ 35a:	cf 90       	pop	r12
+ 35c:	af 90       	pop	r10
+ 35e:	08 95       	ret
+
+00000360 <test_add2_check>:
+
+void test_add2_check(void)
+{
+ 360:	af 92       	push	r10
+ 362:	cf 92       	push	r12
+ 364:	df 92       	push	r13
+ 366:	ef 92       	push	r14
+ 368:	ff 92       	push	r15
+ 36a:	0f 93       	push	r16
+ 36c:	1f 93       	push	r17
+	TEST_ASSERT_EQUAL(5,AddFunc(-1,2));
+ 36e:	22 e0       	ldi	r18, 0x02	; 2
+ 370:	30 e0       	ldi	r19, 0x00	; 0
+ 372:	40 e0       	ldi	r20, 0x00	; 0
+ 374:	50 e0       	ldi	r21, 0x00	; 0
+ 376:	6f ef       	ldi	r22, 0xFF	; 255
+ 378:	7f ef       	ldi	r23, 0xFF	; 255
+ 37a:	cb 01       	movw	r24, r22
+ 37c:	0e 94 7d 01 	call	0x2fa	; 0x2fa <AddFunc>
+ 380:	9b 01       	movw	r18, r22
+ 382:	ac 01       	movw	r20, r24
+ 384:	0f 2e       	mov	r0, r31
+ 386:	f2 e1       	ldi	r31, 0x12	; 18
+ 388:	af 2e       	mov	r10, r31
+ 38a:	f0 2d       	mov	r31, r0
+ 38c:	0f 2e       	mov	r0, r31
+ 38e:	f8 e3       	ldi	r31, 0x38	; 56
+ 390:	cf 2e       	mov	r12, r31
+ 392:	d1 2c       	mov	r13, r1
+ 394:	e1 2c       	mov	r14, r1
+ 396:	f1 2c       	mov	r15, r1
+ 398:	f0 2d       	mov	r31, r0
+ 39a:	00 e0       	ldi	r16, 0x00	; 0
+ 39c:	10 e0       	ldi	r17, 0x00	; 0
+ 39e:	65 e0       	ldi	r22, 0x05	; 5
+ 3a0:	70 e0       	ldi	r23, 0x00	; 0
+ 3a2:	80 e0       	ldi	r24, 0x00	; 0
+ 3a4:	90 e0       	ldi	r25, 0x00	; 0
+ 3a6:	0e 94 8a 04 	call	0x914	; 0x914 <UnityAssertEqualNumber>
+}
+ 3aa:	1f 91       	pop	r17
+ 3ac:	0f 91       	pop	r16
+ 3ae:	ff 90       	pop	r15
+ 3b0:	ef 90       	pop	r14
+ 3b2:	df 90       	pop	r13
+ 3b4:	cf 90       	pop	r12
+ 3b6:	af 90       	pop	r10
+ 3b8:	08 95       	ret
+
+000003ba <test_add3_check>:
+void test_add3_check(void)
+{
+ 3ba:	af 92       	push	r10
+ 3bc:	cf 92       	push	r12
+ 3be:	df 92       	push	r13
+ 3c0:	ef 92       	push	r14
+ 3c2:	ff 92       	push	r15
+ 3c4:	0f 93       	push	r16
+ 3c6:	1f 93       	push	r17
+	TEST_ASSERT_EQUAL(-1,AddFunc(1,-2));
+ 3c8:	2e ef       	ldi	r18, 0xFE	; 254
+ 3ca:	3f ef       	ldi	r19, 0xFF	; 255
+ 3cc:	4f ef       	ldi	r20, 0xFF	; 255
+ 3ce:	5f ef       	ldi	r21, 0xFF	; 255
+ 3d0:	61 e0       	ldi	r22, 0x01	; 1
+ 3d2:	70 e0       	ldi	r23, 0x00	; 0
+ 3d4:	80 e0       	ldi	r24, 0x00	; 0
+ 3d6:	90 e0       	ldi	r25, 0x00	; 0
+ 3d8:	0e 94 7d 01 	call	0x2fa	; 0x2fa <AddFunc>
+ 3dc:	9b 01       	movw	r18, r22
+ 3de:	ac 01       	movw	r20, r24
+ 3e0:	0f 2e       	mov	r0, r31
+ 3e2:	f2 e1       	ldi	r31, 0x12	; 18
+ 3e4:	af 2e       	mov	r10, r31
+ 3e6:	f0 2d       	mov	r31, r0
+ 3e8:	0f 2e       	mov	r0, r31
+ 3ea:	fc e3       	ldi	r31, 0x3C	; 60
+ 3ec:	cf 2e       	mov	r12, r31
+ 3ee:	d1 2c       	mov	r13, r1
+ 3f0:	e1 2c       	mov	r14, r1
+ 3f2:	f1 2c       	mov	r15, r1
+ 3f4:	f0 2d       	mov	r31, r0
+ 3f6:	00 e0       	ldi	r16, 0x00	; 0
+ 3f8:	10 e0       	ldi	r17, 0x00	; 0
+ 3fa:	6f ef       	ldi	r22, 0xFF	; 255
+ 3fc:	7f ef       	ldi	r23, 0xFF	; 255
+ 3fe:	cb 01       	movw	r24, r22
+ 400:	0e 94 8a 04 	call	0x914	; 0x914 <UnityAssertEqualNumber>
+}
+ 404:	1f 91       	pop	r17
+ 406:	0f 91       	pop	r16
+ 408:	ff 90       	pop	r15
+ 40a:	ef 90       	pop	r14
+ 40c:	df 90       	pop	r13
+ 40e:	cf 90       	pop	r12
+ 410:	af 90       	pop	r10
+ 412:	08 95       	ret
+
+00000414 <UART_Init>:
+	UART_TX_Fptr=LocalPtr;
+}
+
+void  UART_RXCallBack(void(*LocalPtr)(void))
+{
+	UART_RX_Fptr=LocalPtr;
+ 414:	9c 01       	movw	r18, r24
+ 416:	1b b8       	out	0x0b, r1	; 11
+ 418:	88 e1       	ldi	r24, 0x18	; 24
+ 41a:	8a b9       	out	0x0a, r24	; 10
+ 41c:	86 e8       	ldi	r24, 0x86	; 134
+ 41e:	80 bd       	out	0x20, r24	; 32
+ 420:	c9 01       	movw	r24, r18
+ 422:	a0 e0       	ldi	r26, 0x00	; 0
+ 424:	b0 e0       	ldi	r27, 0x00	; 0
+ 426:	88 0f       	add	r24, r24
+ 428:	99 1f       	adc	r25, r25
+ 42a:	aa 1f       	adc	r26, r26
+ 42c:	bb 1f       	adc	r27, r27
+ 42e:	88 0f       	add	r24, r24
+ 430:	99 1f       	adc	r25, r25
+ 432:	aa 1f       	adc	r26, r26
+ 434:	bb 1f       	adc	r27, r27
+ 436:	9c 01       	movw	r18, r24
+ 438:	ad 01       	movw	r20, r26
+ 43a:	22 0f       	add	r18, r18
+ 43c:	33 1f       	adc	r19, r19
+ 43e:	44 1f       	adc	r20, r20
+ 440:	55 1f       	adc	r21, r21
+ 442:	22 0f       	add	r18, r18
+ 444:	33 1f       	adc	r19, r19
+ 446:	44 1f       	adc	r20, r20
+ 448:	55 1f       	adc	r21, r21
+ 44a:	60 e0       	ldi	r22, 0x00	; 0
+ 44c:	72 e1       	ldi	r23, 0x12	; 18
+ 44e:	8a e7       	ldi	r24, 0x7A	; 122
+ 450:	90 e0       	ldi	r25, 0x00	; 0
+ 452:	0e 94 b0 05 	call	0xb60	; 0xb60 <__udivmodsi4>
+ 456:	21 50       	subi	r18, 0x01	; 1
+ 458:	31 09       	sbc	r19, r1
+ 45a:	30 bd       	out	0x20, r19	; 32
+ 45c:	29 b9       	out	0x09, r18	; 9
+ 45e:	08 95       	ret
+
+00000460 <UART_SendBusyWait>:
+ 460:	5d 9b       	sbis	0x0b, 5	; 11
+ 462:	fe cf       	rjmp	.-4      	; 0x460 <UART_SendBusyWait>
+ 464:	8c b9       	out	0x0c, r24	; 12
+ 466:	08 95       	ret
+
+00000468 <__vector_15>:
+}
+
+/************************************ISR************************************/
+ISR(UART_TX_vect)
+{
+ 468:	1f 92       	push	r1
+ 46a:	0f 92       	push	r0
+ 46c:	0f b6       	in	r0, 0x3f	; 63
+ 46e:	0f 92       	push	r0
+ 470:	11 24       	eor	r1, r1
+ 472:	2f 93       	push	r18
+ 474:	3f 93       	push	r19
+ 476:	4f 93       	push	r20
+ 478:	5f 93       	push	r21
+ 47a:	6f 93       	push	r22
+ 47c:	7f 93       	push	r23
+ 47e:	8f 93       	push	r24
+ 480:	9f 93       	push	r25
+ 482:	af 93       	push	r26
+ 484:	bf 93       	push	r27
+ 486:	ef 93       	push	r30
+ 488:	ff 93       	push	r31
+	if(UART_TX_Fptr!=NULLPTR)
+ 48a:	e0 91 28 01 	lds	r30, 0x0128	; 0x800128 <__data_end>
+ 48e:	f0 91 29 01 	lds	r31, 0x0129	; 0x800129 <__data_end+0x1>
+ 492:	30 97       	sbiw	r30, 0x00	; 0
+ 494:	09 f0       	breq	.+2      	; 0x498 <__vector_15+0x30>
+	{
+		UART_TX_Fptr();
+ 496:	09 95       	icall
+	}
+}
+ 498:	ff 91       	pop	r31
+ 49a:	ef 91       	pop	r30
+ 49c:	bf 91       	pop	r27
+ 49e:	af 91       	pop	r26
+ 4a0:	9f 91       	pop	r25
+ 4a2:	8f 91       	pop	r24
+ 4a4:	7f 91       	pop	r23
+ 4a6:	6f 91       	pop	r22
+ 4a8:	5f 91       	pop	r21
+ 4aa:	4f 91       	pop	r20
+ 4ac:	3f 91       	pop	r19
+ 4ae:	2f 91       	pop	r18
+ 4b0:	0f 90       	pop	r0
+ 4b2:	0f be       	out	0x3f, r0	; 63
+ 4b4:	0f 90       	pop	r0
+ 4b6:	1f 90       	pop	r1
+ 4b8:	18 95       	reti
+
+000004ba <__vector_13>:
+
+ISR(UART_RX_vect)
+{
+ 4ba:	1f 92       	push	r1
+ 4bc:	0f 92       	push	r0
+ 4be:	0f b6       	in	r0, 0x3f	; 63
+ 4c0:	0f 92       	push	r0
+ 4c2:	11 24       	eor	r1, r1
+ 4c4:	2f 93       	push	r18
+ 4c6:	3f 93       	push	r19
+ 4c8:	4f 93       	push	r20
+ 4ca:	5f 93       	push	r21
+ 4cc:	6f 93       	push	r22
+ 4ce:	7f 93       	push	r23
+ 4d0:	8f 93       	push	r24
+ 4d2:	9f 93       	push	r25
+ 4d4:	af 93       	push	r26
+ 4d6:	bf 93       	push	r27
+ 4d8:	ef 93       	push	r30
+ 4da:	ff 93       	push	r31
+	if(UART_RX_Fptr!=NULLPTR)
+ 4dc:	e0 91 2a 01 	lds	r30, 0x012A	; 0x80012a <UART_RX_Fptr>
+ 4e0:	f0 91 2b 01 	lds	r31, 0x012B	; 0x80012b <UART_RX_Fptr+0x1>
+ 4e4:	30 97       	sbiw	r30, 0x00	; 0
+ 4e6:	09 f0       	breq	.+2      	; 0x4ea <__vector_13+0x30>
+	{
+		UART_RX_Fptr();
+ 4e8:	09 95       	icall
+	}
+ 4ea:	ff 91       	pop	r31
+ 4ec:	ef 91       	pop	r30
+ 4ee:	bf 91       	pop	r27
+ 4f0:	af 91       	pop	r26
+ 4f2:	9f 91       	pop	r25
+ 4f4:	8f 91       	pop	r24
+ 4f6:	7f 91       	pop	r23
+ 4f8:	6f 91       	pop	r22
+ 4fa:	5f 91       	pop	r21
+ 4fc:	4f 91       	pop	r20
+ 4fe:	3f 91       	pop	r19
+ 500:	2f 91       	pop	r18
+ 502:	0f 90       	pop	r0
+ 504:	0f be       	out	0x3f, r0	; 63
+ 506:	0f 90       	pop	r0
+ 508:	1f 90       	pop	r1
+ 50a:	18 95       	reti
+
+0000050c <UnityPrintNumberUnsigned>:
+#endif
+
+/*-----------------------------------------------*/
+void UnitySetTestFile(const char* filename)
+{
+    Unity.TestFile = filename;
+ 50c:	4f 92       	push	r4
+ 50e:	5f 92       	push	r5
+ 510:	6f 92       	push	r6
+ 512:	7f 92       	push	r7
+ 514:	8f 92       	push	r8
+ 516:	9f 92       	push	r9
+ 518:	af 92       	push	r10
+ 51a:	bf 92       	push	r11
+ 51c:	cf 92       	push	r12
+ 51e:	df 92       	push	r13
+ 520:	ef 92       	push	r14
+ 522:	ff 92       	push	r15
+ 524:	4b 01       	movw	r8, r22
+ 526:	5c 01       	movw	r10, r24
+ 528:	c1 2c       	mov	r12, r1
+ 52a:	d1 2c       	mov	r13, r1
+ 52c:	76 01       	movw	r14, r12
+ 52e:	c3 94       	inc	r12
+ 530:	12 c0       	rjmp	.+36     	; 0x556 <UnityPrintNumberUnsigned+0x4a>
+ 532:	cc 0c       	add	r12, r12
+ 534:	dd 1c       	adc	r13, r13
+ 536:	ee 1c       	adc	r14, r14
+ 538:	ff 1c       	adc	r15, r15
+ 53a:	d7 01       	movw	r26, r14
+ 53c:	c6 01       	movw	r24, r12
+ 53e:	88 0f       	add	r24, r24
+ 540:	99 1f       	adc	r25, r25
+ 542:	aa 1f       	adc	r26, r26
+ 544:	bb 1f       	adc	r27, r27
+ 546:	88 0f       	add	r24, r24
+ 548:	99 1f       	adc	r25, r25
+ 54a:	aa 1f       	adc	r26, r26
+ 54c:	bb 1f       	adc	r27, r27
+ 54e:	c8 0e       	add	r12, r24
+ 550:	d9 1e       	adc	r13, r25
+ 552:	ea 1e       	adc	r14, r26
+ 554:	fb 1e       	adc	r15, r27
+ 556:	c5 01       	movw	r24, r10
+ 558:	b4 01       	movw	r22, r8
+ 55a:	a7 01       	movw	r20, r14
+ 55c:	96 01       	movw	r18, r12
+ 55e:	0e 94 b0 05 	call	0xb60	; 0xb60 <__udivmodsi4>
+ 562:	2a 30       	cpi	r18, 0x0A	; 10
+ 564:	31 05       	cpc	r19, r1
+ 566:	41 05       	cpc	r20, r1
+ 568:	51 05       	cpc	r21, r1
+ 56a:	18 f7       	brcc	.-58     	; 0x532 <UnityPrintNumberUnsigned+0x26>
+ 56c:	c5 01       	movw	r24, r10
+ 56e:	b4 01       	movw	r22, r8
+ 570:	a7 01       	movw	r20, r14
+ 572:	96 01       	movw	r18, r12
+ 574:	0e 94 b0 05 	call	0xb60	; 0xb60 <__udivmodsi4>
+ 578:	0f 2e       	mov	r0, r31
+ 57a:	fa e0       	ldi	r31, 0x0A	; 10
+ 57c:	4f 2e       	mov	r4, r31
+ 57e:	51 2c       	mov	r5, r1
+ 580:	61 2c       	mov	r6, r1
+ 582:	71 2c       	mov	r7, r1
+ 584:	f0 2d       	mov	r31, r0
+ 586:	ca 01       	movw	r24, r20
+ 588:	b9 01       	movw	r22, r18
+ 58a:	a3 01       	movw	r20, r6
+ 58c:	92 01       	movw	r18, r4
+ 58e:	0e 94 b0 05 	call	0xb60	; 0xb60 <__udivmodsi4>
+ 592:	80 e3       	ldi	r24, 0x30	; 48
+ 594:	86 0f       	add	r24, r22
+ 596:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 59a:	c7 01       	movw	r24, r14
+ 59c:	b6 01       	movw	r22, r12
+ 59e:	a3 01       	movw	r20, r6
+ 5a0:	92 01       	movw	r18, r4
+ 5a2:	0e 94 b0 05 	call	0xb60	; 0xb60 <__udivmodsi4>
+ 5a6:	69 01       	movw	r12, r18
+ 5a8:	7a 01       	movw	r14, r20
+ 5aa:	23 2b       	or	r18, r19
+ 5ac:	24 2b       	or	r18, r20
+ 5ae:	25 2b       	or	r18, r21
+ 5b0:	e9 f6       	brne	.-70     	; 0x56c <UnityPrintNumberUnsigned+0x60>
+ 5b2:	ff 90       	pop	r15
+ 5b4:	ef 90       	pop	r14
+ 5b6:	df 90       	pop	r13
+ 5b8:	cf 90       	pop	r12
+ 5ba:	bf 90       	pop	r11
+ 5bc:	af 90       	pop	r10
+ 5be:	9f 90       	pop	r9
+ 5c0:	8f 90       	pop	r8
+ 5c2:	7f 90       	pop	r7
+ 5c4:	6f 90       	pop	r6
+ 5c6:	5f 90       	pop	r5
+ 5c8:	4f 90       	pop	r4
+ 5ca:	08 95       	ret
+
+000005cc <UnityPrintNumber>:
+ 5cc:	cf 92       	push	r12
+ 5ce:	df 92       	push	r13
+ 5d0:	ef 92       	push	r14
+ 5d2:	ff 92       	push	r15
+ 5d4:	6b 01       	movw	r12, r22
+ 5d6:	7c 01       	movw	r14, r24
+ 5d8:	99 23       	and	r25, r25
+ 5da:	5c f4       	brge	.+22     	; 0x5f2 <UnityPrintNumber+0x26>
+ 5dc:	8d e2       	ldi	r24, 0x2D	; 45
+ 5de:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 5e2:	f0 94       	com	r15
+ 5e4:	e0 94       	com	r14
+ 5e6:	d0 94       	com	r13
+ 5e8:	c0 94       	com	r12
+ 5ea:	c1 1c       	adc	r12, r1
+ 5ec:	d1 1c       	adc	r13, r1
+ 5ee:	e1 1c       	adc	r14, r1
+ 5f0:	f1 1c       	adc	r15, r1
+ 5f2:	c7 01       	movw	r24, r14
+ 5f4:	b6 01       	movw	r22, r12
+ 5f6:	0e 94 86 02 	call	0x50c	; 0x50c <UnityPrintNumberUnsigned>
+ 5fa:	ff 90       	pop	r15
+ 5fc:	ef 90       	pop	r14
+ 5fe:	df 90       	pop	r13
+ 600:	cf 90       	pop	r12
+ 602:	08 95       	ret
+
+00000604 <UnityPrintNumberHex>:
+ 604:	cf 92       	push	r12
+ 606:	df 92       	push	r13
+ 608:	ef 92       	push	r14
+ 60a:	ff 92       	push	r15
+ 60c:	cf 93       	push	r28
+ 60e:	6b 01       	movw	r12, r22
+ 610:	7c 01       	movw	r14, r24
+ 612:	49 30       	cpi	r20, 0x09	; 9
+ 614:	10 f4       	brcc	.+4      	; 0x61a <UnityPrintNumberHex+0x16>
+ 616:	c4 2f       	mov	r28, r20
+ 618:	20 c0       	rjmp	.+64     	; 0x65a <UnityPrintNumberHex+0x56>
+ 61a:	c8 e0       	ldi	r28, 0x08	; 8
+ 61c:	1e c0       	rjmp	.+60     	; 0x65a <UnityPrintNumberHex+0x56>
+ 61e:	c1 50       	subi	r28, 0x01	; 1
+ 620:	8c 2f       	mov	r24, r28
+ 622:	90 e0       	ldi	r25, 0x00	; 0
+ 624:	88 0f       	add	r24, r24
+ 626:	99 1f       	adc	r25, r25
+ 628:	88 0f       	add	r24, r24
+ 62a:	99 1f       	adc	r25, r25
+ 62c:	a7 01       	movw	r20, r14
+ 62e:	96 01       	movw	r18, r12
+ 630:	04 c0       	rjmp	.+8      	; 0x63a <UnityPrintNumberHex+0x36>
+ 632:	56 95       	lsr	r21
+ 634:	47 95       	ror	r20
+ 636:	37 95       	ror	r19
+ 638:	27 95       	ror	r18
+ 63a:	8a 95       	dec	r24
+ 63c:	d2 f7       	brpl	.-12     	; 0x632 <UnityPrintNumberHex+0x2e>
+ 63e:	da 01       	movw	r26, r20
+ 640:	c9 01       	movw	r24, r18
+ 642:	8f 70       	andi	r24, 0x0F	; 15
+ 644:	99 27       	eor	r25, r25
+ 646:	8a 30       	cpi	r24, 0x0A	; 10
+ 648:	91 05       	cpc	r25, r1
+ 64a:	24 f4       	brge	.+8      	; 0x654 <UnityPrintNumberHex+0x50>
+ 64c:	80 5d       	subi	r24, 0xD0	; 208
+ 64e:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 652:	03 c0       	rjmp	.+6      	; 0x65a <UnityPrintNumberHex+0x56>
+ 654:	89 5c       	subi	r24, 0xC9	; 201
+ 656:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 65a:	c1 11       	cpse	r28, r1
+ 65c:	e0 cf       	rjmp	.-64     	; 0x61e <UnityPrintNumberHex+0x1a>
+ 65e:	cf 91       	pop	r28
+ 660:	ff 90       	pop	r15
+ 662:	ef 90       	pop	r14
+ 664:	df 90       	pop	r13
+ 666:	cf 90       	pop	r12
+ 668:	08 95       	ret
+
+0000066a <UnityPrintChar>:
+ 66a:	cf 93       	push	r28
+ 66c:	df 93       	push	r29
+ 66e:	ec 01       	movw	r28, r24
+ 670:	88 81       	ld	r24, Y
+ 672:	90 ee       	ldi	r25, 0xE0	; 224
+ 674:	98 0f       	add	r25, r24
+ 676:	9f 35       	cpi	r25, 0x5F	; 95
+ 678:	18 f4       	brcc	.+6      	; 0x680 <UnityPrintChar+0x16>
+ 67a:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 67e:	1f c0       	rjmp	.+62     	; 0x6be <UnityPrintChar+0x54>
+ 680:	8d 30       	cpi	r24, 0x0D	; 13
+ 682:	39 f4       	brne	.+14     	; 0x692 <UnityPrintChar+0x28>
+ 684:	8c e5       	ldi	r24, 0x5C	; 92
+ 686:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 68a:	82 e7       	ldi	r24, 0x72	; 114
+ 68c:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 690:	16 c0       	rjmp	.+44     	; 0x6be <UnityPrintChar+0x54>
+ 692:	8a 30       	cpi	r24, 0x0A	; 10
+ 694:	39 f4       	brne	.+14     	; 0x6a4 <UnityPrintChar+0x3a>
+ 696:	8c e5       	ldi	r24, 0x5C	; 92
+ 698:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 69c:	8e e6       	ldi	r24, 0x6E	; 110
+ 69e:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 6a2:	0d c0       	rjmp	.+26     	; 0x6be <UnityPrintChar+0x54>
+ 6a4:	8c e5       	ldi	r24, 0x5C	; 92
+ 6a6:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 6aa:	88 e7       	ldi	r24, 0x78	; 120
+ 6ac:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 6b0:	68 81       	ld	r22, Y
+ 6b2:	70 e0       	ldi	r23, 0x00	; 0
+ 6b4:	80 e0       	ldi	r24, 0x00	; 0
+ 6b6:	90 e0       	ldi	r25, 0x00	; 0
+ 6b8:	42 e0       	ldi	r20, 0x02	; 2
+ 6ba:	0e 94 02 03 	call	0x604	; 0x604 <UnityPrintNumberHex>
+ 6be:	df 91       	pop	r29
+ 6c0:	cf 91       	pop	r28
+ 6c2:	08 95       	ret
+
+000006c4 <UnityPrint>:
+ 6c4:	cf 93       	push	r28
+ 6c6:	df 93       	push	r29
+ 6c8:	ec 01       	movw	r28, r24
+ 6ca:	89 2b       	or	r24, r25
+ 6cc:	29 f4       	brne	.+10     	; 0x6d8 <UnityPrint+0x14>
+ 6ce:	07 c0       	rjmp	.+14     	; 0x6de <UnityPrint+0x1a>
+ 6d0:	ce 01       	movw	r24, r28
+ 6d2:	0e 94 35 03 	call	0x66a	; 0x66a <UnityPrintChar>
+ 6d6:	21 96       	adiw	r28, 0x01	; 1
+ 6d8:	88 81       	ld	r24, Y
+ 6da:	81 11       	cpse	r24, r1
+ 6dc:	f9 cf       	rjmp	.-14     	; 0x6d0 <UnityPrint+0xc>
+ 6de:	df 91       	pop	r29
+ 6e0:	cf 91       	pop	r28
+ 6e2:	08 95       	ret
+
+000006e4 <UnityTestResultsBegin>:
+ 6e4:	cf 92       	push	r12
+ 6e6:	df 92       	push	r13
+ 6e8:	ef 92       	push	r14
+ 6ea:	ff 92       	push	r15
+ 6ec:	6a 01       	movw	r12, r20
+ 6ee:	7b 01       	movw	r14, r22
+ 6f0:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 6f4:	8a e3       	ldi	r24, 0x3A	; 58
+ 6f6:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 6fa:	c7 01       	movw	r24, r14
+ 6fc:	b6 01       	movw	r22, r12
+ 6fe:	0e 94 e6 02 	call	0x5cc	; 0x5cc <UnityPrintNumber>
+ 702:	8a e3       	ldi	r24, 0x3A	; 58
+ 704:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 708:	80 91 2e 01 	lds	r24, 0x012E	; 0x80012e <Unity+0x2>
+ 70c:	90 91 2f 01 	lds	r25, 0x012F	; 0x80012f <Unity+0x3>
+ 710:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 714:	8a e3       	ldi	r24, 0x3A	; 58
+ 716:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 71a:	ff 90       	pop	r15
+ 71c:	ef 90       	pop	r14
+ 71e:	df 90       	pop	r13
+ 720:	cf 90       	pop	r12
+ 722:	08 95       	ret
+
+00000724 <UnityTestResultsFailBegin>:
+ 724:	ab 01       	movw	r20, r22
+ 726:	bc 01       	movw	r22, r24
+ 728:	80 91 2c 01 	lds	r24, 0x012C	; 0x80012c <Unity>
+ 72c:	90 91 2d 01 	lds	r25, 0x012D	; 0x80012d <Unity+0x1>
+ 730:	0e 94 72 03 	call	0x6e4	; 0x6e4 <UnityTestResultsBegin>
+ 734:	8a e1       	ldi	r24, 0x1A	; 26
+ 736:	91 e0       	ldi	r25, 0x01	; 1
+ 738:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 73c:	8a e3       	ldi	r24, 0x3A	; 58
+ 73e:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 742:	08 95       	ret
+
+00000744 <UnityAddMsgIfSpecified>:
+ 744:	0f 93       	push	r16
+ 746:	1f 93       	push	r17
+ 748:	cf 93       	push	r28
+ 74a:	df 93       	push	r29
+ 74c:	ec 01       	movw	r28, r24
+ 74e:	80 91 30 01 	lds	r24, 0x0130	; 0x800130 <Unity+0x4>
+ 752:	90 91 31 01 	lds	r25, 0x0131	; 0x800131 <Unity+0x5>
+ 756:	89 2b       	or	r24, r25
+ 758:	f1 f0       	breq	.+60     	; 0x796 <UnityAddMsgIfSpecified+0x52>
+ 75a:	87 e1       	ldi	r24, 0x17	; 23
+ 75c:	91 e0       	ldi	r25, 0x01	; 1
+ 75e:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 762:	87 ec       	ldi	r24, 0xC7	; 199
+ 764:	90 e0       	ldi	r25, 0x00	; 0
+ 766:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 76a:	0c e2       	ldi	r16, 0x2C	; 44
+ 76c:	11 e0       	ldi	r17, 0x01	; 1
+ 76e:	f8 01       	movw	r30, r16
+ 770:	84 81       	ldd	r24, Z+4	; 0x04
+ 772:	95 81       	ldd	r25, Z+5	; 0x05
+ 774:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 778:	f8 01       	movw	r30, r16
+ 77a:	86 81       	ldd	r24, Z+6	; 0x06
+ 77c:	97 81       	ldd	r25, Z+7	; 0x07
+ 77e:	89 2b       	or	r24, r25
+ 780:	51 f0       	breq	.+20     	; 0x796 <UnityAddMsgIfSpecified+0x52>
+ 782:	8c eb       	ldi	r24, 0xBC	; 188
+ 784:	90 e0       	ldi	r25, 0x00	; 0
+ 786:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 78a:	80 91 32 01 	lds	r24, 0x0132	; 0x800132 <Unity+0x6>
+ 78e:	90 91 33 01 	lds	r25, 0x0133	; 0x800133 <Unity+0x7>
+ 792:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 796:	20 97       	sbiw	r28, 0x00	; 0
+ 798:	39 f0       	breq	.+14     	; 0x7a8 <UnityAddMsgIfSpecified+0x64>
+ 79a:	87 e1       	ldi	r24, 0x17	; 23
+ 79c:	91 e0       	ldi	r25, 0x01	; 1
+ 79e:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 7a2:	ce 01       	movw	r24, r28
+ 7a4:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 7a8:	df 91       	pop	r29
+ 7aa:	cf 91       	pop	r28
+ 7ac:	1f 91       	pop	r17
+ 7ae:	0f 91       	pop	r16
+ 7b0:	08 95       	ret
+
+000007b2 <UnityPrintNumberByStyle>:
+ 7b2:	cf 92       	push	r12
+ 7b4:	df 92       	push	r13
+ 7b6:	ef 92       	push	r14
+ 7b8:	ff 92       	push	r15
+ 7ba:	cf 93       	push	r28
+ 7bc:	6b 01       	movw	r12, r22
+ 7be:	7c 01       	movw	r14, r24
+ 7c0:	c4 2f       	mov	r28, r20
+ 7c2:	44 ff       	sbrs	r20, 4
+ 7c4:	3f c0       	rjmp	.+126    	; 0x844 <__DATA_REGION_LENGTH__+0x44>
+ 7c6:	41 39       	cpi	r20, 0x91	; 145
+ 7c8:	d1 f5       	brne	.+116    	; 0x83e <__DATA_REGION_LENGTH__+0x3e>
+ 7ca:	87 e2       	ldi	r24, 0x27	; 39
+ 7cc:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 7d0:	d7 01       	movw	r26, r14
+ 7d2:	c6 01       	movw	r24, r12
+ 7d4:	80 97       	sbiw	r24, 0x20	; 32
+ 7d6:	a1 09       	sbc	r26, r1
+ 7d8:	b1 09       	sbc	r27, r1
+ 7da:	8f 35       	cpi	r24, 0x5F	; 95
+ 7dc:	91 05       	cpc	r25, r1
+ 7de:	a1 05       	cpc	r26, r1
+ 7e0:	b1 05       	cpc	r27, r1
+ 7e2:	20 f4       	brcc	.+8      	; 0x7ec <UnityPrintNumberByStyle+0x3a>
+ 7e4:	8c 2d       	mov	r24, r12
+ 7e6:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 7ea:	25 c0       	rjmp	.+74     	; 0x836 <__DATA_REGION_LENGTH__+0x36>
+ 7ec:	8d e0       	ldi	r24, 0x0D	; 13
+ 7ee:	c8 16       	cp	r12, r24
+ 7f0:	d1 04       	cpc	r13, r1
+ 7f2:	e1 04       	cpc	r14, r1
+ 7f4:	f1 04       	cpc	r15, r1
+ 7f6:	39 f4       	brne	.+14     	; 0x806 <__DATA_REGION_LENGTH__+0x6>
+ 7f8:	8c e5       	ldi	r24, 0x5C	; 92
+ 7fa:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 7fe:	82 e7       	ldi	r24, 0x72	; 114
+ 800:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 804:	18 c0       	rjmp	.+48     	; 0x836 <__DATA_REGION_LENGTH__+0x36>
+ 806:	8a e0       	ldi	r24, 0x0A	; 10
+ 808:	c8 16       	cp	r12, r24
+ 80a:	d1 04       	cpc	r13, r1
+ 80c:	e1 04       	cpc	r14, r1
+ 80e:	f1 04       	cpc	r15, r1
+ 810:	39 f4       	brne	.+14     	; 0x820 <__DATA_REGION_LENGTH__+0x20>
+ 812:	8c e5       	ldi	r24, 0x5C	; 92
+ 814:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 818:	8e e6       	ldi	r24, 0x6E	; 110
+ 81a:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 81e:	0b c0       	rjmp	.+22     	; 0x836 <__DATA_REGION_LENGTH__+0x36>
+ 820:	8c e5       	ldi	r24, 0x5C	; 92
+ 822:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 826:	88 e7       	ldi	r24, 0x78	; 120
+ 828:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 82c:	42 e0       	ldi	r20, 0x02	; 2
+ 82e:	c7 01       	movw	r24, r14
+ 830:	b6 01       	movw	r22, r12
+ 832:	0e 94 02 03 	call	0x604	; 0x604 <UnityPrintNumberHex>
+ 836:	87 e2       	ldi	r24, 0x27	; 39
+ 838:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 83c:	15 c0       	rjmp	.+42     	; 0x868 <__stack+0x9>
+ 83e:	0e 94 e6 02 	call	0x5cc	; 0x5cc <UnityPrintNumber>
+ 842:	12 c0       	rjmp	.+36     	; 0x868 <__stack+0x9>
+ 844:	45 ff       	sbrs	r20, 5
+ 846:	03 c0       	rjmp	.+6      	; 0x84e <__DATA_REGION_LENGTH__+0x4e>
+ 848:	0e 94 86 02 	call	0x50c	; 0x50c <UnityPrintNumberUnsigned>
+ 84c:	0d c0       	rjmp	.+26     	; 0x868 <__stack+0x9>
+ 84e:	80 e3       	ldi	r24, 0x30	; 48
+ 850:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 854:	88 e7       	ldi	r24, 0x78	; 120
+ 856:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 85a:	4c 2f       	mov	r20, r28
+ 85c:	4f 70       	andi	r20, 0x0F	; 15
+ 85e:	44 0f       	add	r20, r20
+ 860:	c7 01       	movw	r24, r14
+ 862:	b6 01       	movw	r22, r12
+ 864:	0e 94 02 03 	call	0x604	; 0x604 <UnityPrintNumberHex>
+ 868:	cf 91       	pop	r28
+ 86a:	ff 90       	pop	r15
+ 86c:	ef 90       	pop	r14
+ 86e:	df 90       	pop	r13
+ 870:	cf 90       	pop	r12
+ 872:	08 95       	ret
+
+00000874 <UnityConcludeTest>:
+ 874:	80 91 48 01 	lds	r24, 0x0148	; 0x800148 <Unity+0x1c>
+ 878:	90 91 49 01 	lds	r25, 0x0149	; 0x800149 <Unity+0x1d>
+ 87c:	a0 91 4a 01 	lds	r26, 0x014A	; 0x80014a <Unity+0x1e>
+ 880:	b0 91 4b 01 	lds	r27, 0x014B	; 0x80014b <Unity+0x1f>
+ 884:	89 2b       	or	r24, r25
+ 886:	8a 2b       	or	r24, r26
+ 888:	8b 2b       	or	r24, r27
+ 88a:	71 f0       	breq	.+28     	; 0x8a8 <UnityConcludeTest+0x34>
+ 88c:	ec e2       	ldi	r30, 0x2C	; 44
+ 88e:	f1 e0       	ldi	r31, 0x01	; 1
+ 890:	84 89       	ldd	r24, Z+20	; 0x14
+ 892:	95 89       	ldd	r25, Z+21	; 0x15
+ 894:	a6 89       	ldd	r26, Z+22	; 0x16
+ 896:	b7 89       	ldd	r27, Z+23	; 0x17
+ 898:	01 96       	adiw	r24, 0x01	; 1
+ 89a:	a1 1d       	adc	r26, r1
+ 89c:	b1 1d       	adc	r27, r1
+ 89e:	84 8b       	std	Z+20, r24	; 0x14
+ 8a0:	95 8b       	std	Z+21, r25	; 0x15
+ 8a2:	a6 8b       	std	Z+22, r26	; 0x16
+ 8a4:	b7 8b       	std	Z+23, r27	; 0x17
+ 8a6:	28 c0       	rjmp	.+80     	; 0x8f8 <UnityConcludeTest+0x84>
+ 8a8:	80 91 44 01 	lds	r24, 0x0144	; 0x800144 <Unity+0x18>
+ 8ac:	90 91 45 01 	lds	r25, 0x0145	; 0x800145 <Unity+0x19>
+ 8b0:	a0 91 46 01 	lds	r26, 0x0146	; 0x800146 <Unity+0x1a>
+ 8b4:	b0 91 47 01 	lds	r27, 0x0147	; 0x800147 <Unity+0x1b>
+ 8b8:	89 2b       	or	r24, r25
+ 8ba:	8a 2b       	or	r24, r26
+ 8bc:	8b 2b       	or	r24, r27
+ 8be:	79 f4       	brne	.+30     	; 0x8de <UnityConcludeTest+0x6a>
+ 8c0:	ec e2       	ldi	r30, 0x2C	; 44
+ 8c2:	f1 e0       	ldi	r31, 0x01	; 1
+ 8c4:	40 85       	ldd	r20, Z+8	; 0x08
+ 8c6:	51 85       	ldd	r21, Z+9	; 0x09
+ 8c8:	62 85       	ldd	r22, Z+10	; 0x0a
+ 8ca:	73 85       	ldd	r23, Z+11	; 0x0b
+ 8cc:	80 81       	ld	r24, Z
+ 8ce:	91 81       	ldd	r25, Z+1	; 0x01
+ 8d0:	0e 94 72 03 	call	0x6e4	; 0x6e4 <UnityTestResultsBegin>
+ 8d4:	8f e1       	ldi	r24, 0x1F	; 31
+ 8d6:	91 e0       	ldi	r25, 0x01	; 1
+ 8d8:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 8dc:	0d c0       	rjmp	.+26     	; 0x8f8 <UnityConcludeTest+0x84>
+ 8de:	ec e2       	ldi	r30, 0x2C	; 44
+ 8e0:	f1 e0       	ldi	r31, 0x01	; 1
+ 8e2:	80 89       	ldd	r24, Z+16	; 0x10
+ 8e4:	91 89       	ldd	r25, Z+17	; 0x11
+ 8e6:	a2 89       	ldd	r26, Z+18	; 0x12
+ 8e8:	b3 89       	ldd	r27, Z+19	; 0x13
+ 8ea:	01 96       	adiw	r24, 0x01	; 1
+ 8ec:	a1 1d       	adc	r26, r1
+ 8ee:	b1 1d       	adc	r27, r1
+ 8f0:	80 8b       	std	Z+16, r24	; 0x10
+ 8f2:	91 8b       	std	Z+17, r25	; 0x11
+ 8f4:	a2 8b       	std	Z+18, r26	; 0x12
+ 8f6:	b3 8b       	std	Z+19, r27	; 0x13
+ 8f8:	ec e2       	ldi	r30, 0x2C	; 44
+ 8fa:	f1 e0       	ldi	r31, 0x01	; 1
+ 8fc:	10 8e       	std	Z+24, r1	; 0x18
+ 8fe:	11 8e       	std	Z+25, r1	; 0x19
+ 900:	12 8e       	std	Z+26, r1	; 0x1a
+ 902:	13 8e       	std	Z+27, r1	; 0x1b
+ 904:	14 8e       	std	Z+28, r1	; 0x1c
+ 906:	15 8e       	std	Z+29, r1	; 0x1d
+ 908:	16 8e       	std	Z+30, r1	; 0x1e
+ 90a:	17 8e       	std	Z+31, r1	; 0x1f
+ 90c:	8a e0       	ldi	r24, 0x0A	; 10
+ 90e:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+ 912:	08 95       	ret
+
+00000914 <UnityAssertEqualNumber>:
+ 914:	4f 92       	push	r4
+ 916:	5f 92       	push	r5
+ 918:	6f 92       	push	r6
+ 91a:	7f 92       	push	r7
+ 91c:	af 92       	push	r10
+ 91e:	cf 92       	push	r12
+ 920:	df 92       	push	r13
+ 922:	ef 92       	push	r14
+ 924:	ff 92       	push	r15
+ 926:	0f 93       	push	r16
+ 928:	1f 93       	push	r17
+ 92a:	cf 93       	push	r28
+ 92c:	df 93       	push	r29
+ 92e:	00 d0       	rcall	.+0      	; 0x930 <UnityAssertEqualNumber+0x1c>
+ 930:	00 d0       	rcall	.+0      	; 0x932 <UnityAssertEqualNumber+0x1e>
+ 932:	cd b7       	in	r28, 0x3d	; 61
+ 934:	de b7       	in	r29, 0x3e	; 62
+ 936:	69 83       	std	Y+1, r22	; 0x01
+ 938:	7a 83       	std	Y+2, r23	; 0x02
+ 93a:	8b 83       	std	Y+3, r24	; 0x03
+ 93c:	9c 83       	std	Y+4, r25	; 0x04
+ 93e:	29 01       	movw	r4, r18
+ 940:	3a 01       	movw	r6, r20
+ 942:	80 91 44 01 	lds	r24, 0x0144	; 0x800144 <Unity+0x18>
+ 946:	90 91 45 01 	lds	r25, 0x0145	; 0x800145 <Unity+0x19>
+ 94a:	a0 91 46 01 	lds	r26, 0x0146	; 0x800146 <Unity+0x1a>
+ 94e:	b0 91 47 01 	lds	r27, 0x0147	; 0x800147 <Unity+0x1b>
+ 952:	89 2b       	or	r24, r25
+ 954:	8a 2b       	or	r24, r26
+ 956:	8b 2b       	or	r24, r27
+ 958:	61 f4       	brne	.+24     	; 0x972 <UnityAssertEqualNumber+0x5e>
+ 95a:	80 91 48 01 	lds	r24, 0x0148	; 0x800148 <Unity+0x1c>
+ 95e:	90 91 49 01 	lds	r25, 0x0149	; 0x800149 <Unity+0x1d>
+ 962:	a0 91 4a 01 	lds	r26, 0x014A	; 0x80014a <Unity+0x1e>
+ 966:	b0 91 4b 01 	lds	r27, 0x014B	; 0x80014b <Unity+0x1f>
+ 96a:	89 2b       	or	r24, r25
+ 96c:	8a 2b       	or	r24, r26
+ 96e:	8b 2b       	or	r24, r27
+ 970:	31 f0       	breq	.+12     	; 0x97e <UnityAssertEqualNumber+0x6a>
+ 972:	61 e0       	ldi	r22, 0x01	; 1
+ 974:	70 e0       	ldi	r23, 0x00	; 0
+ 976:	8c e4       	ldi	r24, 0x4C	; 76
+ 978:	91 e0       	ldi	r25, 0x01	; 1
+ 97a:	0e 94 f2 05 	call	0xbe4	; 0xbe4 <longjmp>
+ 97e:	89 81       	ldd	r24, Y+1	; 0x01
+ 980:	9a 81       	ldd	r25, Y+2	; 0x02
+ 982:	ab 81       	ldd	r26, Y+3	; 0x03
+ 984:	bc 81       	ldd	r27, Y+4	; 0x04
+ 986:	82 17       	cp	r24, r18
+ 988:	93 07       	cpc	r25, r19
+ 98a:	a4 07       	cpc	r26, r20
+ 98c:	b5 07       	cpc	r27, r21
+ 98e:	69 f1       	breq	.+90     	; 0x9ea <UnityAssertEqualNumber+0xd6>
+ 990:	c7 01       	movw	r24, r14
+ 992:	b6 01       	movw	r22, r12
+ 994:	0e 94 92 03 	call	0x724	; 0x724 <UnityTestResultsFailBegin>
+ 998:	8c e0       	ldi	r24, 0x0C	; 12
+ 99a:	91 e0       	ldi	r25, 0x01	; 1
+ 99c:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 9a0:	4a 2d       	mov	r20, r10
+ 9a2:	69 81       	ldd	r22, Y+1	; 0x01
+ 9a4:	7a 81       	ldd	r23, Y+2	; 0x02
+ 9a6:	8b 81       	ldd	r24, Y+3	; 0x03
+ 9a8:	9c 81       	ldd	r25, Y+4	; 0x04
+ 9aa:	0e 94 d9 03 	call	0x7b2	; 0x7b2 <UnityPrintNumberByStyle>
+ 9ae:	86 e0       	ldi	r24, 0x06	; 6
+ 9b0:	91 e0       	ldi	r25, 0x01	; 1
+ 9b2:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ 9b6:	4a 2d       	mov	r20, r10
+ 9b8:	c3 01       	movw	r24, r6
+ 9ba:	b2 01       	movw	r22, r4
+ 9bc:	0e 94 d9 03 	call	0x7b2	; 0x7b2 <UnityPrintNumberByStyle>
+ 9c0:	c8 01       	movw	r24, r16
+ 9c2:	0e 94 a2 03 	call	0x744	; 0x744 <UnityAddMsgIfSpecified>
+ 9c6:	81 e0       	ldi	r24, 0x01	; 1
+ 9c8:	90 e0       	ldi	r25, 0x00	; 0
+ 9ca:	a0 e0       	ldi	r26, 0x00	; 0
+ 9cc:	b0 e0       	ldi	r27, 0x00	; 0
+ 9ce:	80 93 44 01 	sts	0x0144, r24	; 0x800144 <Unity+0x18>
+ 9d2:	90 93 45 01 	sts	0x0145, r25	; 0x800145 <Unity+0x19>
+ 9d6:	a0 93 46 01 	sts	0x0146, r26	; 0x800146 <Unity+0x1a>
+ 9da:	b0 93 47 01 	sts	0x0147, r27	; 0x800147 <Unity+0x1b>
+ 9de:	61 e0       	ldi	r22, 0x01	; 1
+ 9e0:	70 e0       	ldi	r23, 0x00	; 0
+ 9e2:	8c e4       	ldi	r24, 0x4C	; 76
+ 9e4:	91 e0       	ldi	r25, 0x01	; 1
+ 9e6:	0e 94 f2 05 	call	0xbe4	; 0xbe4 <longjmp>
+ 9ea:	0f 90       	pop	r0
+ 9ec:	0f 90       	pop	r0
+ 9ee:	0f 90       	pop	r0
+ 9f0:	0f 90       	pop	r0
+ 9f2:	df 91       	pop	r29
+ 9f4:	cf 91       	pop	r28
+ 9f6:	1f 91       	pop	r17
+ 9f8:	0f 91       	pop	r16
+ 9fa:	ff 90       	pop	r15
+ 9fc:	ef 90       	pop	r14
+ 9fe:	df 90       	pop	r13
+ a00:	cf 90       	pop	r12
+ a02:	af 90       	pop	r10
+ a04:	7f 90       	pop	r7
+ a06:	6f 90       	pop	r6
+ a08:	5f 90       	pop	r5
+ a0a:	4f 90       	pop	r4
+ a0c:	08 95       	ret
+
+00000a0e <UnityDefaultTestRun>:
+ a0e:	cf 93       	push	r28
+ a10:	df 93       	push	r29
+ a12:	00 d0       	rcall	.+0      	; 0xa14 <UnityDefaultTestRun+0x6>
+ a14:	cd b7       	in	r28, 0x3d	; 61
+ a16:	de b7       	in	r29, 0x3e	; 62
+ a18:	9a 83       	std	Y+2, r25	; 0x02
+ a1a:	89 83       	std	Y+1, r24	; 0x01
+ a1c:	ec e2       	ldi	r30, 0x2C	; 44
+ a1e:	f1 e0       	ldi	r31, 0x01	; 1
+ a20:	73 83       	std	Z+3, r23	; 0x03
+ a22:	62 83       	std	Z+2, r22	; 0x02
+ a24:	05 2e       	mov	r0, r21
+ a26:	00 0c       	add	r0, r0
+ a28:	66 0b       	sbc	r22, r22
+ a2a:	77 0b       	sbc	r23, r23
+ a2c:	40 87       	std	Z+8, r20	; 0x08
+ a2e:	51 87       	std	Z+9, r21	; 0x09
+ a30:	62 87       	std	Z+10, r22	; 0x0a
+ a32:	73 87       	std	Z+11, r23	; 0x0b
+ a34:	84 85       	ldd	r24, Z+12	; 0x0c
+ a36:	95 85       	ldd	r25, Z+13	; 0x0d
+ a38:	a6 85       	ldd	r26, Z+14	; 0x0e
+ a3a:	b7 85       	ldd	r27, Z+15	; 0x0f
+ a3c:	01 96       	adiw	r24, 0x01	; 1
+ a3e:	a1 1d       	adc	r26, r1
+ a40:	b1 1d       	adc	r27, r1
+ a42:	84 87       	std	Z+12, r24	; 0x0c
+ a44:	95 87       	std	Z+13, r25	; 0x0d
+ a46:	a6 87       	std	Z+14, r26	; 0x0e
+ a48:	b7 87       	std	Z+15, r27	; 0x0f
+ a4a:	15 82       	std	Z+5, r1	; 0x05
+ a4c:	14 82       	std	Z+4, r1	; 0x04
+ a4e:	17 82       	std	Z+7, r1	; 0x07
+ a50:	16 82       	std	Z+6, r1	; 0x06
+ a52:	8c e4       	ldi	r24, 0x4C	; 76
+ a54:	91 e0       	ldi	r25, 0x01	; 1
+ a56:	0e 94 d2 05 	call	0xba4	; 0xba4 <setjmp>
+ a5a:	89 2b       	or	r24, r25
+ a5c:	29 f4       	brne	.+10     	; 0xa68 <UnityDefaultTestRun+0x5a>
+ a5e:	0e 94 56 01 	call	0x2ac	; 0x2ac <setUp>
+ a62:	e9 81       	ldd	r30, Y+1	; 0x01
+ a64:	fa 81       	ldd	r31, Y+2	; 0x02
+ a66:	09 95       	icall
+ a68:	8c e4       	ldi	r24, 0x4C	; 76
+ a6a:	91 e0       	ldi	r25, 0x01	; 1
+ a6c:	0e 94 d2 05 	call	0xba4	; 0xba4 <setjmp>
+ a70:	89 2b       	or	r24, r25
+ a72:	11 f4       	brne	.+4      	; 0xa78 <UnityDefaultTestRun+0x6a>
+ a74:	0e 94 57 01 	call	0x2ae	; 0x2ae <tearDown>
+ a78:	0e 94 3a 04 	call	0x874	; 0x874 <UnityConcludeTest>
+ a7c:	0f 90       	pop	r0
+ a7e:	0f 90       	pop	r0
+ a80:	df 91       	pop	r29
+ a82:	cf 91       	pop	r28
+ a84:	08 95       	ret
+
+00000a86 <UnityBegin>:
+}
+
+/*-----------------------------------------------*/
+void UnityBegin(const char* filename)
+{
+    Unity.TestFile = filename;
+ a86:	ec e2       	ldi	r30, 0x2C	; 44
+ a88:	f1 e0       	ldi	r31, 0x01	; 1
+ a8a:	91 83       	std	Z+1, r25	; 0x01
+ a8c:	80 83       	st	Z, r24
+    Unity.CurrentTestName = NULL;
+ a8e:	13 82       	std	Z+3, r1	; 0x03
+ a90:	12 82       	std	Z+2, r1	; 0x02
+    Unity.CurrentTestLineNumber = 0;
+ a92:	10 86       	std	Z+8, r1	; 0x08
+ a94:	11 86       	std	Z+9, r1	; 0x09
+ a96:	12 86       	std	Z+10, r1	; 0x0a
+ a98:	13 86       	std	Z+11, r1	; 0x0b
+    Unity.NumberOfTests = 0;
+ a9a:	14 86       	std	Z+12, r1	; 0x0c
+ a9c:	15 86       	std	Z+13, r1	; 0x0d
+ a9e:	16 86       	std	Z+14, r1	; 0x0e
+ aa0:	17 86       	std	Z+15, r1	; 0x0f
+    Unity.TestFailures = 0;
+ aa2:	10 8a       	std	Z+16, r1	; 0x10
+ aa4:	11 8a       	std	Z+17, r1	; 0x11
+ aa6:	12 8a       	std	Z+18, r1	; 0x12
+ aa8:	13 8a       	std	Z+19, r1	; 0x13
+    Unity.TestIgnores = 0;
+ aaa:	14 8a       	std	Z+20, r1	; 0x14
+ aac:	15 8a       	std	Z+21, r1	; 0x15
+ aae:	16 8a       	std	Z+22, r1	; 0x16
+ ab0:	17 8a       	std	Z+23, r1	; 0x17
+    Unity.CurrentTestFailed = 0;
+ ab2:	10 8e       	std	Z+24, r1	; 0x18
+ ab4:	11 8e       	std	Z+25, r1	; 0x19
+ ab6:	12 8e       	std	Z+26, r1	; 0x1a
+ ab8:	13 8e       	std	Z+27, r1	; 0x1b
+    Unity.CurrentTestIgnored = 0;
+ aba:	14 8e       	std	Z+28, r1	; 0x1c
+ abc:	15 8e       	std	Z+29, r1	; 0x1d
+ abe:	16 8e       	std	Z+30, r1	; 0x1e
+ ac0:	17 8e       	std	Z+31, r1	; 0x1f
+
+    UNITY_CLR_DETAILS();
+ ac2:	15 82       	std	Z+5, r1	; 0x05
+ ac4:	14 82       	std	Z+4, r1	; 0x04
+ ac6:	17 82       	std	Z+7, r1	; 0x07
+ ac8:	16 82       	std	Z+6, r1	; 0x06
+ aca:	08 95       	ret
+
+00000acc <UnityEnd>:
+    UNITY_OUTPUT_START();
+}
+
+/*-----------------------------------------------*/
+int UnityEnd(void)
+{
+ acc:	cf 93       	push	r28
+ ace:	df 93       	push	r29
+    UNITY_PRINT_EOL();
+ ad0:	8a e0       	ldi	r24, 0x0A	; 10
+ ad2:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+    UnityPrint(UnityStrBreaker);
+ ad6:	8e ee       	ldi	r24, 0xEE	; 238
+ ad8:	90 e0       	ldi	r25, 0x00	; 0
+ ada:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+    UNITY_PRINT_EOL();
+ ade:	8a e0       	ldi	r24, 0x0A	; 10
+ ae0:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+    UnityPrintNumber((UNITY_INT)(Unity.NumberOfTests));
+ ae4:	cc e2       	ldi	r28, 0x2C	; 44
+ ae6:	d1 e0       	ldi	r29, 0x01	; 1
+ ae8:	6c 85       	ldd	r22, Y+12	; 0x0c
+ aea:	7d 85       	ldd	r23, Y+13	; 0x0d
+ aec:	8e 85       	ldd	r24, Y+14	; 0x0e
+ aee:	9f 85       	ldd	r25, Y+15	; 0x0f
+ af0:	0e 94 e6 02 	call	0x5cc	; 0x5cc <UnityPrintNumber>
+    UnityPrint(UnityStrResultsTests);
+ af4:	86 ee       	ldi	r24, 0xE6	; 230
+ af6:	90 e0       	ldi	r25, 0x00	; 0
+ af8:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+    UnityPrintNumber((UNITY_INT)(Unity.TestFailures));
+ afc:	68 89       	ldd	r22, Y+16	; 0x10
+ afe:	79 89       	ldd	r23, Y+17	; 0x11
+ b00:	8a 89       	ldd	r24, Y+18	; 0x12
+ b02:	9b 89       	ldd	r25, Y+19	; 0x13
+ b04:	0e 94 e6 02 	call	0x5cc	; 0x5cc <UnityPrintNumber>
+    UnityPrint(UnityStrResultsFailures);
+ b08:	8b ed       	ldi	r24, 0xDB	; 219
+ b0a:	90 e0       	ldi	r25, 0x00	; 0
+ b0c:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+    UnityPrintNumber((UNITY_INT)(Unity.TestIgnores));
+ b10:	6c 89       	ldd	r22, Y+20	; 0x14
+ b12:	7d 89       	ldd	r23, Y+21	; 0x15
+ b14:	8e 89       	ldd	r24, Y+22	; 0x16
+ b16:	9f 89       	ldd	r25, Y+23	; 0x17
+ b18:	0e 94 e6 02 	call	0x5cc	; 0x5cc <UnityPrintNumber>
+    UnityPrint(UnityStrResultsIgnored);
+ b1c:	81 ed       	ldi	r24, 0xD1	; 209
+ b1e:	90 e0       	ldi	r25, 0x00	; 0
+ b20:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+    UNITY_PRINT_EOL();
+ b24:	8a e0       	ldi	r24, 0x0A	; 10
+ b26:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+    if (Unity.TestFailures == 0U)
+ b2a:	88 89       	ldd	r24, Y+16	; 0x10
+ b2c:	99 89       	ldd	r25, Y+17	; 0x11
+ b2e:	aa 89       	ldd	r26, Y+18	; 0x12
+ b30:	bb 89       	ldd	r27, Y+19	; 0x13
+ b32:	89 2b       	or	r24, r25
+ b34:	8a 2b       	or	r24, r26
+ b36:	8b 2b       	or	r24, r27
+ b38:	29 f4       	brne	.+10     	; 0xb44 <UnityEnd+0x78>
+    {
+        UnityPrint(UnityStrOk);
+ b3a:	84 e2       	ldi	r24, 0x24	; 36
+ b3c:	91 e0       	ldi	r25, 0x01	; 1
+ b3e:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+ b42:	04 c0       	rjmp	.+8      	; 0xb4c <UnityEnd+0x80>
+    }
+    else
+    {
+        UnityPrint(UnityStrFail);
+ b44:	8a e1       	ldi	r24, 0x1A	; 26
+ b46:	91 e0       	ldi	r25, 0x01	; 1
+ b48:	0e 94 62 03 	call	0x6c4	; 0x6c4 <UnityPrint>
+#ifdef UNITY_DIFFERENTIATE_FINAL_FAIL
+        UNITY_OUTPUT_CHAR('E'); UNITY_OUTPUT_CHAR('D');
+#endif
+    }
+    UNITY_PRINT_EOL();
+ b4c:	8a e0       	ldi	r24, 0x0A	; 10
+ b4e:	0e 94 30 02 	call	0x460	; 0x460 <UART_SendBusyWait>
+    UNITY_FLUSH_CALL();
+    UNITY_OUTPUT_COMPLETE();
+    return (int)(Unity.TestFailures);
+}
+ b52:	80 91 3c 01 	lds	r24, 0x013C	; 0x80013c <Unity+0x10>
+ b56:	90 91 3d 01 	lds	r25, 0x013D	; 0x80013d <Unity+0x11>
+ b5a:	df 91       	pop	r29
+ b5c:	cf 91       	pop	r28
+ b5e:	08 95       	ret
+
+00000b60 <__udivmodsi4>:
+ b60:	a1 e2       	ldi	r26, 0x21	; 33
+ b62:	1a 2e       	mov	r1, r26
+ b64:	aa 1b       	sub	r26, r26
+ b66:	bb 1b       	sub	r27, r27
+ b68:	fd 01       	movw	r30, r26
+ b6a:	0d c0       	rjmp	.+26     	; 0xb86 <__udivmodsi4_ep>
+
+00000b6c <__udivmodsi4_loop>:
+ b6c:	aa 1f       	adc	r26, r26
+ b6e:	bb 1f       	adc	r27, r27
+ b70:	ee 1f       	adc	r30, r30
+ b72:	ff 1f       	adc	r31, r31
+ b74:	a2 17       	cp	r26, r18
+ b76:	b3 07       	cpc	r27, r19
+ b78:	e4 07       	cpc	r30, r20
+ b7a:	f5 07       	cpc	r31, r21
+ b7c:	20 f0       	brcs	.+8      	; 0xb86 <__udivmodsi4_ep>
+ b7e:	a2 1b       	sub	r26, r18
+ b80:	b3 0b       	sbc	r27, r19
+ b82:	e4 0b       	sbc	r30, r20
+ b84:	f5 0b       	sbc	r31, r21
+
+00000b86 <__udivmodsi4_ep>:
+ b86:	66 1f       	adc	r22, r22
+ b88:	77 1f       	adc	r23, r23
+ b8a:	88 1f       	adc	r24, r24
+ b8c:	99 1f       	adc	r25, r25
+ b8e:	1a 94       	dec	r1
+ b90:	69 f7       	brne	.-38     	; 0xb6c <__udivmodsi4_loop>
+ b92:	60 95       	com	r22
+ b94:	70 95       	com	r23
+ b96:	80 95       	com	r24
+ b98:	90 95       	com	r25
+ b9a:	9b 01       	movw	r18, r22
+ b9c:	ac 01       	movw	r20, r24
+ b9e:	bd 01       	movw	r22, r26
+ ba0:	cf 01       	movw	r24, r30
+ ba2:	08 95       	ret
+
+00000ba4 <setjmp>:
+ ba4:	dc 01       	movw	r26, r24
+ ba6:	2d 92       	st	X+, r2
+ ba8:	3d 92       	st	X+, r3
+ baa:	4d 92       	st	X+, r4
+ bac:	5d 92       	st	X+, r5
+ bae:	6d 92       	st	X+, r6
+ bb0:	7d 92       	st	X+, r7
+ bb2:	8d 92       	st	X+, r8
+ bb4:	9d 92       	st	X+, r9
+ bb6:	ad 92       	st	X+, r10
+ bb8:	bd 92       	st	X+, r11
+ bba:	cd 92       	st	X+, r12
+ bbc:	dd 92       	st	X+, r13
+ bbe:	ed 92       	st	X+, r14
+ bc0:	fd 92       	st	X+, r15
+ bc2:	0d 93       	st	X+, r16
+ bc4:	1d 93       	st	X+, r17
+ bc6:	cd 93       	st	X+, r28
+ bc8:	dd 93       	st	X+, r29
+ bca:	ff 91       	pop	r31
+ bcc:	ef 91       	pop	r30
+ bce:	8d b7       	in	r24, 0x3d	; 61
+ bd0:	8d 93       	st	X+, r24
+ bd2:	8e b7       	in	r24, 0x3e	; 62
+ bd4:	8d 93       	st	X+, r24
+ bd6:	8f b7       	in	r24, 0x3f	; 63
+ bd8:	8d 93       	st	X+, r24
+ bda:	ed 93       	st	X+, r30
+ bdc:	fd 93       	st	X+, r31
+ bde:	88 27       	eor	r24, r24
+ be0:	99 27       	eor	r25, r25
+ be2:	09 94       	ijmp
+
+00000be4 <longjmp>:
+ be4:	dc 01       	movw	r26, r24
+ be6:	cb 01       	movw	r24, r22
+ be8:	81 30       	cpi	r24, 0x01	; 1
+ bea:	91 05       	cpc	r25, r1
+ bec:	81 1d       	adc	r24, r1
+ bee:	2d 90       	ld	r2, X+
+ bf0:	3d 90       	ld	r3, X+
+ bf2:	4d 90       	ld	r4, X+
+ bf4:	5d 90       	ld	r5, X+
+ bf6:	6d 90       	ld	r6, X+
+ bf8:	7d 90       	ld	r7, X+
+ bfa:	8d 90       	ld	r8, X+
+ bfc:	9d 90       	ld	r9, X+
+ bfe:	ad 90       	ld	r10, X+
+ c00:	bd 90       	ld	r11, X+
+ c02:	cd 90       	ld	r12, X+
+ c04:	dd 90       	ld	r13, X+
+ c06:	ed 90       	ld	r14, X+
+ c08:	fd 90       	ld	r15, X+
+ c0a:	0d 91       	ld	r16, X+
+ c0c:	1d 91       	ld	r17, X+
+ c0e:	cd 91       	ld	r28, X+
+ c10:	dd 91       	ld	r29, X+
+ c12:	ed 91       	ld	r30, X+
+ c14:	fd 91       	ld	r31, X+
+ c16:	0d 90       	ld	r0, X+
+ c18:	f8 94       	cli
+ c1a:	fe bf       	out	0x3e, r31	; 62
+ c1c:	0f be       	out	0x3f, r0	; 63
+ c1e:	ed bf       	out	0x3d, r30	; 61
+ c20:	ed 91       	ld	r30, X+
+ c22:	fd 91       	ld	r31, X+
+ c24:	09 94       	ijmp
+
+00000c26 <_exit>:
+ c26:	f8 94       	cli
+
+00000c28 <__stop_program>:
+ c28:	ff cf       	rjmp	.-2      	; 0xc28 <__stop_program>
