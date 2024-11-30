@@ -1,0 +1,34 @@
+---
+:source:
+  :path: test
+  :file: test_Calc.c
+:successes:
+- :test: test_Calc_Calculation_Sum_Add_Mul_Div_Result
+  :line: 15
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Calc_Calculation_Sum_Result
+  :line: 23
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Calc_Calculation_Sub_Result
+  :line: 28
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Calc_Calculation_Mul_Result
+  :line: 33
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Calc_Calculation_Div_Result
+  :line: 38
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 5
+  :passed: 5
+  :failed: 0
+  :ignored: 0
+:stdout: []
+:time: 0.06147640000563115
