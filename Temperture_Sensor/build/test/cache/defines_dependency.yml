@@ -1,0 +1,5 @@
+---
+build/test/mocks/mock_adc.c:
+- TEST
+src/temperature.c:
+- TEST

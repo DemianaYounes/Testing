@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.16.0"/>
+    <errors>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;unity.h&quot; not found." verbose="Include file: &quot;unity.h&quot; not found.">
+            <location file="D:\IRRI Internship\Ceedling\add_test\cppcheck\test_add.c" line="4" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;unity.h&quot; not found." verbose="Include file: &quot;unity.h&quot; not found.">
+            <location file="D:\IRRI Internship\Ceedling\add_test\cppcheck\test_add_runner.c" line="4" column="0"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;resetTest&apos; is never used." verbose="The function &apos;resetTest&apos; is never used." cwe="561">
+            <location file="D:\IRRI Internship\Ceedling\add_test\cppcheck\test_add_runner.c" line="33" column="0"/>
+            <symbol>resetTest</symbol>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;verifyTest&apos; is never used." verbose="The function &apos;verifyTest&apos; is never used." cwe="561">
+            <location file="D:\IRRI Internship\Ceedling\add_test\cppcheck\test_add_runner.c" line="42" column="0"/>
+            <symbol>verifyTest</symbol>
+        </error>
+        <error id="checkersReport" severity="information" msg="Active checkers: 108/836 (use --checkers-report=&lt;filename&gt; to see details)" verbose="Active checkers: 108/836 (use --checkers-report=&lt;filename&gt; to see details)"/>
+    </errors>
+</results>
